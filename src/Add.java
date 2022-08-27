@@ -7,7 +7,7 @@ public class Add {
     public static void addUser() throws IOException {
         Scanner scanner = new Scanner(System.in);
         FileWriter writer = new FileWriter("C:\\ideaproject\\TerminalApplication\\src\\database.txt" ,true);
-        BufferedWriter nextLine = new BufferedWriter(writer);
+        BufferedWriter bw = new BufferedWriter(writer);
         System.out.println("In order to add user credentials ,");
 
         String addUsername;
@@ -26,9 +26,10 @@ public class Add {
         System.out.println("Enter Age : ");
         addAge = scanner.nextInt();
 
-        nextLine.newLine();
-        writer.write(addUsername + " | " + addPassword + " | " + addAge);
-        writer.close();
+//        bw.write(addUsername + " | " + addPassword + " | " + addAge);
+        bw.newLine();
+        bw.write(addUsername + " | " + addPassword + " | " + addAge);
+        bw.close();
         }
     }
 
