@@ -16,9 +16,10 @@ public class Login {
         if (username.equals("admin") && password.equals("1234")){
             System.out.println("You are authorized");
         }else{
-            numberOfTries++;
+            numberOfTries+=1;
             System.out.println("Try again");
             if (numberOfTries<3){
+                System.out.println("try again \nYou have "+(3-numberOfTries)+" tries left");
                 login(numberOfTries);
             }
             System.out.println("You are not authorized");
