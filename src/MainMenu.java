@@ -7,17 +7,14 @@ import java.io.File;
 
 public class MainMenu {
     public static void main(String[] args) {
+        Login login = new Login();
+        login.login(3);
+
         File dataFile = new File("C:\\ideaproject\\TerminalApplication\\src\\database.txt");
         if (dataFile.exists()){}else{
             System.out.println("Database does not exist!!!");
         }
-        mainMenu();
-    }
-    static void login(){
-        Scanner scanner = new Scanner(System.in);
-        String username ;
-        System.out.println("Enter Username :");
-        username = scanner.nextLine();
+
     }
     static void menuInput(String[] elements){
         for (String element : elements){
@@ -63,5 +60,4 @@ public class MainMenu {
             }
         }
     }
-
 }
