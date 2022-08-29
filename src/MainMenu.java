@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,8 +8,7 @@ import java.io.File;
 public class MainMenu {
     public static void main(String[] args) {
         Login login = new Login();
-        int numberOfTries = 0;
-        login.login(numberOfTries);
+        login.login(3);
 
         File dataFile = new File("C:\\ideaproject\\TerminalApplication\\src\\database.txt");
         if (dataFile.exists()){}else{
@@ -19,7 +16,7 @@ public class MainMenu {
         }
 
     }
-    static void menuInput(String @NotNull [] elements){
+    static void menuInput(String[] elements){
         for (String element : elements){
             System.out.println(element);
         }
