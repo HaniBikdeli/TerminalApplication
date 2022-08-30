@@ -7,9 +7,10 @@ import java.io.File;
 
 public class MainMenu {
     public static void main(String[] args) {
+        int numberOfTries = 0;
         Login login = new Login();
-        login.login(3);
-
+        login.login(numberOfTries);
+        mainMenu();
         File dataFile = new File("C:\\ideaproject\\TerminalApplication\\src\\database.txt");
         if (dataFile.exists()){}else{
             System.out.println("Database does not exist!!!");

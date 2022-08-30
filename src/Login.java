@@ -5,8 +5,8 @@ import static java.lang.System.exit;
 
 
 public class Login {
+    private static int numberOfTries = 0;
     public static void login(int numberOfTries){
-        numberOfTries = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Username :");
         String username = scanner.nextLine();
@@ -16,12 +16,14 @@ public class Login {
         if (username.equals("admin") && password.equals("1234")){
             System.out.println("You are authorized");
         }else{
-            numberOfTries++;
-            System.out.println("Try again");
+            numberOfTries+=1;
             if (numberOfTries<3){
+                System.out.println("try again \nYou have "+(3-numberOfTries)+" tries left");
                 login(numberOfTries);
+            }else {
+                System.out.println("You are not authorized");
+                exit(0);
             }
-            System.out.println("You are not authorized");
         }
     }
 }
