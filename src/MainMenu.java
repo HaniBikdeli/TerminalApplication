@@ -1,11 +1,11 @@
 import javax.swing.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 import static java.lang.System.exit;
-import java.io.File;
 
 public class MainMenu {
+    static File dataFile = new File("C:\\ideaproject\\TerminalApplication\\src\\database.txt");
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         int numberOfTries = 0;
         Login login = new Login();
@@ -35,6 +35,19 @@ public class MainMenu {
 
         Scanner scanner = new Scanner(System.in);
         ListUsers list = new ListUsers();
+        ReadData reader = new ReadData();
+        Reader r = new Reader() {
+            @Override
+            public int read(char[] cbuf, int off, int len) throws IOException {
+                return 0;
+            }
+
+            @Override
+            public void close() throws IOException {
+
+            }
+        };
+        BufferedReader br = new BufferedReader(r);
         int menuOption;
         while (true){
             menuInput(elements);
@@ -54,6 +67,21 @@ public class MainMenu {
                     try {
                         add.addUser();
                     } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 4:
+                    String userFind = input.nextLine();
+                    try {
+                        reader.deleteLine(br , dataFile ,userFind);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 5:
+                    try {
+                        reader.readLine();
+                    } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
                     break;
